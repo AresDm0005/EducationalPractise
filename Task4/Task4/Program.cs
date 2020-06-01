@@ -1,40 +1,22 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace Task4
 {
-    class Program
+    static class Program
     {
-        static double F(double x)
+        /// <summary>
+        /// The main entry point for the application.
+        /// </summary>
+        [STAThread]
+        static void Main()
         {
-            return x * x * x - 0.2 * x * x - 0.2*x - 1.2;
-        }
-
-        static void Main(string[] args)
-        {
-            double left = 1, right = 1.5;
-            double eps;
-            bool ok = false;
-
-            do
-            {
-                Console.WriteLine("Введите точность вычисления (например 0,0001):");
-                ok = double.TryParse(Console.ReadLine(), out eps);
-
-                if (ok & (eps > 1 || eps <= 0)) ok = false;
-            } while (!ok);
-
-            while(Math.Abs(F(right) - F(left)) > eps)
-            {
-                double mid = left + (right - left) / 2.0;
-                if (F(right) * F(mid) <= 0) left = mid;
-                else right = mid;                
-            }
-
-            Console.WriteLine(left);
+            Application.EnableVisualStyles();
+            Application.SetCompatibleTextRenderingDefault(false);
+            Application.Run(new Task4Form());
         }
     }
 }
