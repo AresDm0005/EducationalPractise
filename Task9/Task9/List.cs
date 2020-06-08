@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections;
-using System.Collections.Generic;
 
 namespace Task9
 {
@@ -97,25 +96,6 @@ namespace Task9
             Length--;
         }
 
-        public void Sort(IComparer<int> comparer)
-        {
-            int[] array = new int[Length];
-
-            Node node = head;
-            int index = 0;
-            while (node != null)
-            {
-                array[index++] = node.Data;
-                node = node.Next;
-            }
-
-            Array.Sort(array, comparer);
-            Clear();
-
-            for (int i = 0; i < array.Length; i++)
-                Add(array[i]);
-        }
-
         public void Clear()
         {
             Node node = head;
@@ -136,13 +116,13 @@ namespace Task9
         {
             Node node = head;
             while (node != null)
-            { 
+            {
                 yield return node.Data;
                 node = node.Next;
             }
         }
 
-        public int Sum()
+        public int SumIterative()
         {
             int sum = 0;
 
@@ -156,14 +136,11 @@ namespace Task9
             return sum;
         }
 
-        public int Sum(Node node)
+        private int Sum(Node node)
         {
             return (node != null) ? node.Data + Sum(node.Next) : 0;
         }
 
-        public int SumRecurs()
-        {
-            return Sum(head);
-        }
+        public int SumRecursive() { return Sum(head); }
     }
 }
