@@ -62,6 +62,7 @@
             // inputBox
             // 
             this.inputBox.Location = new System.Drawing.Point(15, 63);
+            this.inputBox.MaxLength = 45;
             this.inputBox.Name = "inputBox";
             this.inputBox.Size = new System.Drawing.Size(678, 20);
             this.inputBox.TabIndex = 2;

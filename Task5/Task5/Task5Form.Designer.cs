@@ -135,7 +135,6 @@
             this.goButton = new System.Windows.Forms.Button();
             this.resultPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.textBox101 = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
             this.textBox102 = new System.Windows.Forms.TextBox();
             this.textBox103 = new System.Windows.Forms.TextBox();
             this.textBox104 = new System.Windows.Forms.TextBox();
@@ -145,6 +144,7 @@
             this.textBox108 = new System.Windows.Forms.TextBox();
             this.textBox109 = new System.Windows.Forms.TextBox();
             this.textBox110 = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.rndButton = new System.Windows.Forms.Button();
             this.matrixPanel.SuspendLayout();
             this.resultPanel.SuspendLayout();
@@ -1024,16 +1024,6 @@
             this.textBox101.Size = new System.Drawing.Size(80, 20);
             this.textBox101.TabIndex = 10;
             // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label3.Location = new System.Drawing.Point(488, 62);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(80, 18);
-            this.label3.TabIndex = 6;
-            this.label3.Text = "Результат";
-            // 
             // textBox102
             // 
             this.textBox102.Location = new System.Drawing.Point(3, 29);
@@ -1096,6 +1086,16 @@
             this.textBox110.Name = "textBox110";
             this.textBox110.Size = new System.Drawing.Size(80, 20);
             this.textBox110.TabIndex = 19;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label3.Location = new System.Drawing.Point(488, 62);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(80, 18);
+            this.label3.TabIndex = 6;
+            this.label3.Text = "Результат";
             // 
             // rndButton
             // 

@@ -7,11 +7,11 @@ namespace Task10
     {
         private class Node
         {
-            public int Data { get; set; }
+            public double Data { get; set; }
             public Node Next { get; set; }
             public Node Prev { get; set; }
 
-            public Node(int item)
+            public Node(double item)
             {
                 Data = item;
                 Next = null;
@@ -23,13 +23,13 @@ namespace Task10
         private Node head;
         private Node tail;
 
-        public TwoWayList(int[] arr)
+        public TwoWayList(double[] arr)
         {
             for (int i = 0; i < arr.Length; i++)
                 AddLast(arr[i]);
         }
 
-        public void AddFirst(int item)
+        public void AddFirst(double item)
         {
             Node node = new Node(item);
 
@@ -45,7 +45,7 @@ namespace Task10
             Count++;
         }
 
-        public void AddLast(int item)
+        public void AddLast(double item)
         {
             Node node = new Node(item);
 
@@ -100,12 +100,12 @@ namespace Task10
             Count--;
         }
 
-        public long Solve()
+        public double Solve()
         {
             Node left = head;
             Node right = tail;
 
-            long sum = 0;
+            double sum = 0;
             while (left != null && right != null)
             {
                 sum += left.Data * right.Data;

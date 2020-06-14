@@ -6,7 +6,7 @@ namespace Task1
     {
         static void Main(string[] args)
         {
-            // Нам гарантирован корректный ввод -> проверок не нужно
+            // Корректный ввод гарантирован тестирующей системой -> проверок не нужно
             string[] input = Console.ReadLine().Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
             int a = int.Parse(input[0]);
             int b = int.Parse(input[1]);

@@ -20,7 +20,7 @@ namespace Task4
         {
             double left = 1, right = 1.5;
 
-            while (Math.Abs(Equation(right) - Equation(left)) > eps)
+            while (right - left > eps)
             {
                 double mid = left + (right - left) / 2.0;
                 if (Equation(right) * Equation(mid) <= 0) left = mid;
@@ -30,17 +30,26 @@ namespace Task4
             return left;
         }
 
-        private void goButton_Click(object sender, EventArgs e)
+        private bool CheckInput(out string error)
         {
-            double eps;
+            error = "";
+            double eps = -1;
             bool ok = double.TryParse(epsBox.Text, out eps);
 
-            if (!ok)
+            error = "Значение ε введено некорректно";
+            return (ok && eps != 0);
+        }
+
+        private void goButton_Click(object sender, EventArgs e)
+        {
+            string error;
+            if (!CheckInput(out error))
             {
-                MessageBox.Show("Значение ε введено некорректно");
+                MessageBox.Show(error, "Ошибка ввода", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
+            double eps = double.Parse(epsBox.Text);
             resBox.Text = Solve(eps).ToString();
         }
 

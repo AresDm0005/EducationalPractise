@@ -118,6 +118,7 @@
             // 
             this.epsBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.epsBox.Location = new System.Drawing.Point(426, 57);
+            this.epsBox.MaxLength = 16;
             this.epsBox.Name = "epsBox";
             this.epsBox.Size = new System.Drawing.Size(231, 26);
             this.epsBox.TabIndex = 7;

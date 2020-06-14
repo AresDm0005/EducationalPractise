@@ -81,7 +81,6 @@
             this.xBox.Size = new System.Drawing.Size(234, 24);
             this.xBox.TabIndex = 4;
             this.xBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.XY_KeyPress);
-            this.xBox.Leave += new System.EventHandler(this.XY_Leave);
             // 
             // yBox
             // 
@@ -91,7 +90,6 @@
             this.yBox.Size = new System.Drawing.Size(234, 24);
             this.yBox.TabIndex = 5;
             this.yBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.XY_KeyPress);
-            this.yBox.Leave += new System.EventHandler(this.XY_Leave);
             // 
             // label1
             // 

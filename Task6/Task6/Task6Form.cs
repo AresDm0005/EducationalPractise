@@ -26,7 +26,6 @@ namespace Task6
                 e.Handled = true;
         }
 
-
         private bool HandleConst()
         {
             bool ok = false;
@@ -36,8 +35,8 @@ namespace Task6
             if (!ok)
                 error += "Значение N введено некорректно или не введено совсем\n";
 
-            if (ok && N < 4)
-                error += "Значение N должно быть больше 3";
+            if (ok && N < 3)
+                error += "Значение N должно быть больше или равно 3";
                 
 
             ok = int.TryParse(mBox.Text, out M);
@@ -50,8 +49,9 @@ namespace Task6
             return error == "";
         }
 
-        private bool HandleInputs()
+        private bool HandleInputs(out int fl)
         {
+            fl = -1;
             bool ok = HandleConst();            
             if (!ok) return ok;
             string error = "";
@@ -59,6 +59,7 @@ namespace Task6
             arr = new int[N];
             tmp = M;
 
+            
             for(int i = 0; i < 3; i++)
             {
                 ok = int.TryParse(((TextBox)Controls.Find($"a{i + 1}Box", true)[0]).Text, out arr[i]);
@@ -66,6 +67,12 @@ namespace Task6
 
                 if (arr[i] % 3 == 0)
                     M--;
+
+                if (M <= 0 && N <= 0 && fl != 1)
+                    fl = 2;
+                else if (M <= 0)
+                    fl = 1;
+
 
                 if (!ok)
                     error += $"Значение a{i + 1} введено некорректно или не введено совсем\n";
@@ -90,15 +97,19 @@ namespace Task6
         }
 
         private void goButton_Click(object sender, EventArgs e)
-        {   
-            if (!HandleInputs())
+        {
+            int fl;
+            if (!HandleInputs(out fl))
                 return;
-            
+
             // 1 - по N, 2 - по M, 3 - и по N, и по M
-            int result = Recursion(3);
+
+            int result = -1;
+            if (fl == -1)
+                result = Recursion(3);            
             string txt = "";
 
-            if(result == 1)
+            if (result == 1)
             {
                 for (int i = 0; i < arr.Length - 1; i++)
                     txt += $"{arr[i]}, ";
@@ -108,7 +119,7 @@ namespace Task6
                 resultLabel.Text = "построено N элементов последовательности";
                 resultBox.Text = txt;                
             } 
-            else if (result == 2)
+            else if (result == 2 || fl == 1)
             {
 
                 foreach (int it in arr)
@@ -118,7 +129,7 @@ namespace Task6
                         else 
                             txt += $"{it}";                    
 
-                resultLabel.Text = "найдено M элементов кратных 3 последовательности";
+                resultLabel.Text = "найдено M элементов последовательности кратных 3";
                 resultBox.Text = txt;
             }
             else

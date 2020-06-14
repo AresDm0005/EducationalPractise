@@ -18,26 +18,30 @@ namespace Task3
                 e.Handled = true;
         }
 
-        private void XY_Leave(object sender, EventArgs e)
+        private bool CheckInputs(out string error)
         {
-            TextBox textBox = (TextBox)sender;
+            error = "";
+            if (xBox.Text == "" || yBox.Text == "")
+            {
+                error = "Одно из значений координат не было введено!";
+                return false;
+            }
 
             double tmp;
-            bool ok = double.TryParse(textBox.Text, out tmp);
+            if (!double.TryParse(xBox.Text, out tmp))
+                error += "Значение координаты X было введено некорректно\n";
+            if (!double.TryParse(yBox.Text, out tmp))
+                error += "Значение координаты Y было введено некорректно\n";
 
-            if (!ok)
-            {
-                MessageBox.Show($"Значение координаты {textBox.Name[0].ToString().ToUpper()} было введено некорректно", 
-                    "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                textBox.SelectAll();
-            }
+            return error == "";
         }
 
         private void goButton_Click(object sender, EventArgs e)
         {
-            if (xBox.Text == "" || yBox.Text == "")
+            string error;
+            if(!CheckInputs(out error))
             {
-                MessageBox.Show("Одно из значений координат не было введено!", "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show(error, "Ошибка ввода", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 

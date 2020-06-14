@@ -19,11 +19,11 @@ namespace Task10
 
         private void arrayBox_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!Regex.IsMatch(e.KeyChar.ToString(), @"[\d\s\-]") && e.KeyChar != 8)
+            if (!Regex.IsMatch(e.KeyChar.ToString(), @"[\d\s\-,]") && e.KeyChar != 8)
                 e.Handled = true;
         }
 
-        private bool HandleInputs(ref int[] arr, out string error)
+        private bool HandleInputs(ref double[] arr, out string error)
         {
             error = string.Empty;
             if (arrayBox.Text == "")
@@ -33,10 +33,10 @@ namespace Task10
             }
 
             string[] str = arrayBox.Text.Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
-            arr = new int[str.Length];
+            arr = new double[str.Length];
 
             for (int i = 0; i < str.Length; i++)
-                if (!int.TryParse(str[i], out arr[i]))
+                if (!double.TryParse(str[i], out arr[i]))
                     error += $"Некорректно введено значение: {str[i]} на позиции {i + 1} \n";
 
             int N;
@@ -56,7 +56,7 @@ namespace Task10
 
         private void goButton_Click(object sender, EventArgs e)
         {
-            int[] arr = null; 
+            double[] arr = null; 
             string error = "";
             if(!HandleInputs(ref arr, out error))
             {

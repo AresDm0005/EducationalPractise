@@ -38,7 +38,7 @@ namespace Task2
                 long p1 = 2 * a;
                 long p2 = 3 * a;
                 long p3 = 5 * a;
-                                
+
                 int j;
                 for (j = i + 1; j < list.Length && (f1 || f2 || f3); j++)
                 {
